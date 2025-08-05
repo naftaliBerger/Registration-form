@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir = rtl>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טופס רישום לכנס</title>
+</head>
+<body>
+    <form>
+  <fieldset>
+    <legend>מידע אישי</legend>
+  <!-- </fieldset> -->
+  <label for="fullname">שם מלא:</label>
+<input type="text" id="fullname" name="fullname" required minlength="2"><br><br>
+
+<label for="email">אימייל:</label>
+<input type="email" id="email" name="email" required><br><br>
+
+<label for="phone">טלפון:</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{9,10}"  required><br><br>
+
+  <fieldset>
+    <legend>כרטיס וסדנאות</legend>
+  </fieldset>
+
+  <fieldset>
+    <legend>פרטי תשלום</legend>
+  </fieldset>
+
+  <fieldset>
+    <legend>הסכמות</legend>
+  </fieldset>
+
+  <button type="submit">שלח</button>
+</form>
+
+</body>
+</html>
