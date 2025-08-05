@@ -1,38 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" dir = rtl>
+<html lang="he" dir = rtl>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>טופס רישום לכנס</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס רישום לכנס</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form>
+
+<h1>טופס רישום לכנס</h1>
+
+<form>
+
   <fieldset>
     <legend>מידע אישי</legend>
-  <!-- </fieldset> -->
-  <label for="fullname">שם מלא:</label>
-<input type="text" id="fullname" name="fullname" required minlength="2"><br><br>
 
-<label for="email">אימייל:</label>
-<input type="email" id="email" name="email" required><br><br>
+    <label for="fullname">שם מלא:</label>
+    <input type="text" id="fullname" name="fullname" required minlength="2" autocomplete="name">
+    <br><br>
 
-<label for="phone">טלפון:</label>
-<input type="tel" id="phone" name="phone" pattern="[0-9]{9,10}"  required><br><br>
+    <label for="email">אימייל:</label>
+    <input type="email" id="email" name="email" required autocomplete="email">
+    <br><br>
+
+    <label for="phone">טלפון:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{9,10}" required autocomplete="tel">
+  </fieldset>
 
   <fieldset>
     <legend>כרטיס וסדנאות</legend>
+
+    <label for="ticket">סוג כרטיס:</label>
+    <select id="ticket" name="ticket" required>
+      <option value="">בחר...</option>
+      <option value="standard">Standard</option>
+      <option value="vip">VIP</option>
+      <option value="student">Student</option>
+    </select>
+    <br><br>
+
+    <p>סדנאות:</p>
+    <label><input type="checkbox" name="workshop" value="performance"> Web Performance</label><br>
+    <label><input type="checkbox" name="workshop" value="accessibility"> Accessibility</label><br>
+    <label><input type="checkbox" name="workshop" value="testing"> Testing</label><br><br>
+
+    <p>תזונה:</p>
+    <label><input type="radio" name="diet" value="none" checked> ללא</label><br>
+    <label><input type="radio" name="diet" value="vegan"> טבעוני</label><br>
+    <label><input type="radio" name="diet" value="kosher"> כשר</label><br>
+    <label><input type="radio" name="diet" value="halal"> חלאל</label><br>
+    <label><input type="radio" name="diet" value="other"> אחר</label>
+    <input type="text" id="diet-other" name="diet-other" placeholder="פרט כאן" disabled>
   </fieldset>
 
   <fieldset>
     <legend>פרטי תשלום</legend>
+
+    <label for="cardnum">מספר כרטיס:</label>
+    <input type="text" id="cardnum" name="cardnum" pattern="[0-9\s]{13,19}" required autocomplete="cc-number">
+    <br><br>
+
+    <label for="expdate">תוקף הכרטיס:</label>
+    <input type="month" id="expdate" name="expdate" required autocomplete="cc-exp">
+    <br><br>
+
+    <label for="cvv">CVV:</label>
+    <input type="password" id="cvv" name="cvv" pattern="[0-9]{3,4}" required autocomplete="cc-csc">
   </fieldset>
 
   <fieldset>
     <legend>הסכמות</legend>
+
+    <div id="student-id-field" style="display:none;">
+      <label for="studentid">תעודת סטודנט:</label>
+      <input type="file" id="studentid" name="studentid" accept=".pdf,.jpg,.png">
+    </div>
+    <br>
+
+    <label>
+      <input type="checkbox" name="terms" required> אני מסכים לתנאים ולהגבלות
+    </label>
   </fieldset>
 
   <button type="submit">שלח</button>
 </form>
+
 
 </body>
 </html>
